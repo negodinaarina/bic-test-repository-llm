@@ -2,11 +2,12 @@ import logging
 import time
 import traceback
 
-from fastapi import Request, HTTPException
+from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
-from src.services.base.exceptions import ClientError
+
 from src.config import LOGS_DIR
+from src.services.base.exceptions import ClientError
 
 logger = logging.getLogger("app")
 logger.setLevel(logging.INFO)
@@ -78,4 +79,3 @@ class LoggingMiddleware(BaseHTTPMiddleware):
             response.status_code,
         )
         return response
-

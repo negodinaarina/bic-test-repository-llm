@@ -1,4 +1,5 @@
 from typing import List, Optional
+
 from pydantic import BaseModel
 
 
@@ -38,6 +39,7 @@ class ModelSchema(BaseModel):
     top_provider: TopProviderSchema
     per_request_limits: Optional[dict]
     supported_parameters: List[str]
+
 
 class ModelShortSchema(BaseModel):
     id: str

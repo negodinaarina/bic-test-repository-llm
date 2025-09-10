@@ -642,3 +642,16 @@ httpx.ReadTimeout
 2025-09-11 01:15:44,462 - INFO - OK | GET /models | handler=get_models_names | time=0.5164s | status_code=200
 2025-09-11 01:15:45,953 - INFO - OK | GET /models | handler=get_models_names | time=0.0019s | status_code=200
 2025-09-11 01:17:16,436 - INFO - OK | POST /generate | handler=post_model_prompt | time=26.6293s | status_code=200
+2025-09-11 01:33:04,860 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0004s | status_code=200
+2025-09-11 01:33:05,082 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0153s | status_code=200
+2025-09-11 01:33:16,027 - ERROR - ClientError | POST /generate | handler=post_model_prompt | time=0.5284s
+
+2025-09-11 01:35:36,761 - ERROR - ClientError | POST /generate | handler=post_model_prompt | time=0.5819s
+
+2025-09-11 01:37:19,023 - ERROR - ClientError | POST /generate | handler=post_model_prompt | time=0.4594s
+
+2025-09-11 01:39:38,347 - INFO - OK | POST /generate | handler=post_model_prompt | time=42.9548s | status_code=200
+2025-09-11 01:53:11,484 - ERROR - ClientError | GET /models | handler=get_models_names | time=0.0003s
+
+2025-09-11 01:54:50,807 - ERROR - ClientError | GET /models | handler=get_models_names | time=8.0310s
+

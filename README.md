@@ -24,7 +24,7 @@
 
 ### Уровень 2 — Продвинутая реализация
 
-* [ ] `POST /generate`:
+* [x] `POST /generate`:
 
   * параметр `max_tokens` (по умолчанию 512);
   * вернуть JSON с `response`, `tokens_used`, `latency_seconds`;

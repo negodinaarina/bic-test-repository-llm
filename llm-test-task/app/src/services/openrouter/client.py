@@ -1,10 +1,11 @@
 from asyncache import cached
 from cachetools import TTLCache
 
-from src.services.base.client import BaseClient
 from src.config import settings
 from src.schemas.models import ModelSchema, ModelShortSchema
-from src.schemas.prompts import PromptRequestSchema, PromptFullResponseSchema
+from src.schemas.prompts import PromptFullResponseSchema, PromptRequestSchema
+from src.services.base.client import BaseClient
+
 
 class OpenRouterClient(BaseClient):
     _requests_cache = TTLCache(maxsize=settings.CACHE_MAXSIZE, ttl=settings.CACHE_TTL)
@@ -21,17 +22,20 @@ class OpenRouterClient(BaseClient):
         models = await self.get_detailed_models()
         return [ModelShortSchema(**model) for model in models]
 
-    async def post_prompt(self, request: PromptRequestSchema) -> PromptFullResponseSchema:
-        return await self._post(url="/completions", json={
-            "model": request.model,
-            "prompt": request.prompt
-        })
-
+    async def post_prompt(
+        self, request: PromptRequestSchema, max_tokens: int
+    ) -> PromptFullResponseSchema:
+        return await self._post(
+            url="/completions",
+            json={
+                "model": request.model,
+                "prompt": request.prompt,
+                "max_tokens": max_tokens,
+            },
+        )
 
 
 open_router_client = OpenRouterClient(
     base_url=settings.OPENROUTER_BASE_URL,
-    headers={
-        "Authorization": f"Bearer {settings.OPENROUTER_API_KEY}"
-    }
+    headers={"Authorization": f"Bearer {settings.OPENROUTER_API_KEY}"},
 )

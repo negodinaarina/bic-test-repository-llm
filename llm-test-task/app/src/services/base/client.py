@@ -2,6 +2,9 @@ import enum
 from typing import Any, Union
 
 from httpx import AsyncClient
+from tenacity import (retry, retry_if_exception, stop_after_attempt,
+                      wait_exponential)
+
 from src.config import settings
 from src.services.base.exceptions import ClientError
 
@@ -19,6 +22,16 @@ class BaseClient:
         self._base_url = base_url
         self._headers = headers if headers else {}
 
+    @staticmethod
+    def is_retryable_exception(exc: Exception) -> bool:
+        return isinstance(exc, ClientError) and exc.status_code == 429
+
+    @retry(
+        retry=retry_if_exception(is_retryable_exception),
+        wait=wait_exponential(multiplier=1, min=1, max=60),
+        stop=stop_after_attempt(settings.MAX_RETRIES),
+        reraise=True,
+    )
     async def _make_request(
         self,
         method: HTTPMethods,
@@ -39,7 +52,7 @@ class BaseClient:
             if response.status_code >= 300:
                 raise ClientError(
                     status_code=response.status_code,
-                    detail=response.content,
+                    detail=response.text,
                 )
             return response.json()
 

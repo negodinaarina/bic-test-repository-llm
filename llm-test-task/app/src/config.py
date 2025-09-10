@@ -24,5 +24,7 @@ class Settings(BaseSettings):
     CACHE_TTL: int = 10
     CACHE_MAXSIZE: int = 1
     MAX_TOKENS: int = 512
+    MAX_RETRIES: int = 3
+
 
 settings = Settings()

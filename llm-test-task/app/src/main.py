@@ -1,7 +1,7 @@
-from src.api.endpoints import router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from src.api.endpoints import router
 from src.logger import LoggingMiddleware
 
 app = FastAPI(
@@ -21,4 +21,3 @@ app.add_middleware(
 
 app.include_router(router)
 app.add_middleware(LoggingMiddleware)
-
