@@ -655,3 +655,477 @@ httpx.ReadTimeout
 
 2025-09-11 01:54:50,807 - ERROR - ClientError | GET /models | handler=get_models_names | time=8.0310s
 
+2025-09-11 15:41:06,394 - INFO - OK | GET / | handler=None | time=0.0005s | status_code=404
+2025-09-11 15:41:10,793 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0006s | status_code=200
+2025-09-11 15:41:10,943 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0204s | status_code=200
+2025-09-11 15:41:24,087 - INFO - OK | GET /models | handler=get_models_names | time=0.4419s | status_code=200
+2025-09-11 15:43:16,973 - ERROR - UnhandledException | POST /benchmark | handler=benchmark | time=0.0139s
+Traceback:
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/logger.py", line 31, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/api/endpoints.py", line 55, in benchmark
+    metrics = await run_benchmark(prompts, model, runs, concurrency, max_tokens)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/benchmarker/run_utils.py", line 55, in run_benchmark
+    save_benchmark_results(model, results)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/benchmarker/file_utils.py", line 19, in save_benchmark_results
+    filepath = settings.BENCHMARKS_DIR / filename
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/pydantic/main.py", line 991, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Settings' object has no attribute 'BENCHMARKS_DIR'
+
+2025-09-11 15:44:01,903 - ERROR - UnhandledException | POST /benchmark | handler=benchmark | time=0.0039s
+Traceback:
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/logger.py", line 31, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/api/endpoints.py", line 55, in benchmark
+    metrics = await run_benchmark(prompts, model, runs, concurrency, max_tokens)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/benchmarker/run_utils.py", line 55, in run_benchmark
+    save_benchmark_results(model, results)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/benchmarker/file_utils.py", line 21, in save_benchmark_results
+    with open(filepath, mode="w", newline="", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/benchmarks/benchmark_results_deepseek/deepseek-chat-v3.1:free_20250911_154401.csv'
+
+2025-09-11 15:45:24,756 - ERROR - UnhandledException | POST /benchmark | handler=benchmark | time=0.0036s
+Traceback:
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/logger.py", line 31, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/api/endpoints.py", line 55, in benchmark
+    metrics = await run_benchmark(prompts, model, runs, concurrency, max_tokens)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/benchmarker/run_utils.py", line 66, in run_benchmark
+    "failed_runs": sum(1 for _, _, _, error in results if error is not None),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/benchmarker/run_utils.py", line 66, in <genexpr>
+    "failed_runs": sum(1 for _, _, _, error in results if error is not None),
+                             ^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 4)
+
+2025-09-11 15:46:18,025 - INFO - OK | POST /benchmark | handler=benchmark | time=0.0047s | status_code=200
+2025-09-11 15:52:27,357 - INFO - OK | POST /benchmark | handler=benchmark | time=240.9469s | status_code=200
+2025-09-11 16:46:29,459 - INFO - OK | POST /generate | handler=post_model_prompt | time=35.7399s | status_code=200
+2025-09-11 16:49:53,974 - ERROR - UnhandledException | POST /generate | handler=post_model_prompt | time=63.8141s
+Traceback:
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 271, in __aiter__
+    async for part in self._httpcore_stream:
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 407, in __aiter__
+    raise exc from None
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 403, in __aiter__
+    async for part in self._stream:
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpcore/_async/http11.py", line 342, in __aiter__
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpcore/_async/http11.py", line 334, in __aiter__
+    async for chunk in self._connection._receive_response_body(**kwargs):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpcore/_async/http11.py", line 203, in _receive_response_body
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/logger.py", line 31, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/api/endpoints.py", line 24, in post_model_prompt
+    response = await open_router_client.post_prompt(prompt, max_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/openrouter/client.py", line 30, in post_prompt
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/base/client.py", line 88, in _post
+    return await self._make_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/base/client.py", line 56, in _make_request
+    response = await client.request(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1643, in send
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_client.py", line 1637, in send
+    await response.aread()
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_models.py", line 979, in aread
+    self._content = b"".join([part async for part in self.aiter_bytes()])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_models.py", line 997, in aiter_bytes
+    async for raw_bytes in self.aiter_raw():
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_models.py", line 1055, in aiter_raw
+    async for raw_stream_bytes in self.stream:
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_client.py", line 176, in __aiter__
+    async for chunk in self._stream:
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 270, in __aiter__
+    with map_httpcore_exceptions():
+  File "/usr/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+2025-09-11 16:56:43,945 - INFO - OK | POST /generate | handler=post_model_prompt | time=35.1511s | status_code=200
+2025-09-11 16:59:46,016 - INFO - OK | POST /generate | handler=post_model_prompt | time=15.9972s | status_code=200
+2025-09-11 17:01:39,418 - INFO - OK | POST /generate | handler=post_model_prompt | time=21.9260s | status_code=200
+2025-09-11 17:03:54,737 - INFO - OK | POST /generate | handler=post_model_prompt | time=16.9673s | status_code=200
+2025-09-11 17:08:11,016 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0010s | status_code=200
+2025-09-11 17:08:11,376 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0122s | status_code=200
+2025-09-11 17:16:28,988 - INFO - OK | POST /benchmark | handler=benchmark | time=481.0109s | status_code=200
+2025-09-11 18:15:17,585 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0007s | status_code=200
+2025-09-11 18:15:17,933 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0106s | status_code=200
+2025-09-11 18:16:19,114 - ERROR - UnhandledException | POST /benchmark | handler=benchmark | time=46.9557s
+Traceback:
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 151, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream from None
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/logger.py", line 31, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 159, in call_next
+    raise app_exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 78, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/starlette/routing.py", line 75, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 302, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/.venv/lib/python3.12/site-packages/fastapi/routing.py", line 213, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/api/endpoints.py", line 55, in benchmark
+    metrics = await run_benchmark(prompts, model, runs, concurrency, max_tokens)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/benchmarker/run_utils.py", line 56, in run_benchmark
+    save_benchmark_results(model, results)
+  File "/home/arina/PycharmProjects/bic-test-repository-llm/llm-test-task/app/src/services/benchmarker/file_utils.py", line 24, in save_benchmark_results
+    for model, prompt, run, latency, error in results:
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 5, got 4)
+
+2025-09-11 18:18:08,570 - INFO - OK | POST /benchmark | handler=benchmark | time=47.3498s | status_code=200
+2025-09-11 18:34:00,757 - INFO - OK | POST /benchmark | handler=benchmark | time=780.6997s | status_code=200
+2025-09-11 18:51:25,107 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0008s | status_code=200
+2025-09-11 18:51:25,408 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0102s | status_code=200
+2025-09-11 18:56:45,820 - INFO - OK | POST /benchmark | handler=benchmark | time=23.8162s | status_code=200
+2025-09-11 19:03:55,258 - INFO - OK | POST /benchmark | handler=benchmark | time=406.1293s | status_code=200
+2025-09-11 19:24:37,717 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0009s | status_code=200
+2025-09-11 19:24:38,161 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0073s | status_code=200
+2025-09-11 19:29:41,759 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0009s | status_code=200
+2025-09-11 19:29:41,968 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0107s | status_code=200
+2025-09-11 19:30:01,918 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:30:07,399 - ERROR - {'status_code': 429, 'detail': '{"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1757635200000"},"provider_name":null}},"user_id":"user_32I1nV8RFSjzCL0UY0DrAgIaRZU"}'}
+2025-09-11 19:30:07,399 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:30:12,633 - ERROR - {'status_code': 429, 'detail': '{"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1757635200000"},"provider_name":null}},"user_id":"user_32I1nV8RFSjzCL0UY0DrAgIaRZU"}'}
+2025-09-11 19:30:12,634 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:30:17,251 - ERROR - {'status_code': 429, 'detail': '{"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1757635200000"},"provider_name":null}},"user_id":"user_32I1nV8RFSjzCL0UY0DrAgIaRZU"}'}
+2025-09-11 19:30:17,252 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:30:21,749 - ERROR - {'status_code': 429, 'detail': '{"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1757635200000"},"provider_name":null}},"user_id":"user_32I1nV8RFSjzCL0UY0DrAgIaRZU"}'}
+2025-09-11 19:30:21,749 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:30:27,072 - ERROR - {'status_code': 429, 'detail': '{"error":{"message":"Rate limit exceeded: free-models-per-day. Add 10 credits to unlock 1000 free model requests per day","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"50","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1757635200000"},"provider_name":null}},"user_id":"user_32I1nV8RFSjzCL0UY0DrAgIaRZU"}'}
+2025-09-11 19:30:27,072 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:30:31,680 - ERROR - {'status_code': 429, 'detail': '{"error":{"message":"Rate limit exceeded: free-models-per-min. ","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"16","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1757608260000"},"provider_name":null}},"user_id":"user_32I1nV8RFSjzCL0UY0DrAgIaRZU"}'}
+2025-09-11 19:30:31,680 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:30:35,775 - ERROR - {'status_code': 429, 'detail': '{"error":{"message":"Rate limit exceeded: free-models-per-min. ","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"16","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1757608260000"},"provider_name":null}},"user_id":"user_32I1nV8RFSjzCL0UY0DrAgIaRZU"}'}
+2025-09-11 19:30:35,776 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:30:39,770 - ERROR - {'status_code': 429, 'detail': '{"error":{"message":"Rate limit exceeded: free-models-per-min. ","code":429,"metadata":{"headers":{"X-RateLimit-Limit":"16","X-RateLimit-Remaining":"0","X-RateLimit-Reset":"1757608260000"},"provider_name":null}},"user_id":"user_32I1nV8RFSjzCL0UY0DrAgIaRZU"}'}
+2025-09-11 19:30:39,772 - INFO - OK | POST /benchmark | handler=benchmark | time=37.8562s | status_code=200
+2025-09-11 19:31:59,866 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:31:59,868 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:33:32,981 - ERROR - {'_request': <Request('POST', 'https://openrouter.ai/api/v1/completions')>}
+2025-09-11 19:33:32,982 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:33:32,984 - ERROR - {'_request': <Request('POST', 'https://openrouter.ai/api/v1/completions')>}
+2025-09-11 19:33:32,984 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:35:20,415 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0029s | status_code=200
+2025-09-11 19:35:20,736 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0476s | status_code=200
+2025-09-11 19:35:58,251 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-11 19:35:58,255 - INFO - STARTED SINGLE PROMPT IN BENCHMARK
+2025-09-12 00:35:45,137 - INFO - OK | GET / | handler=None | time=0.0003s | status_code=404
+2025-09-12 00:35:45,180 - INFO - OK | GET /favicon.ico | handler=None | time=0.0003s | status_code=404
+2025-09-12 00:35:50,769 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0001s | status_code=200
+2025-09-12 00:35:50,865 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0127s | status_code=200
+2025-09-12 00:35:59,901 - INFO - OK | GET /models | handler=get_models_names | time=0.4029s | status_code=200
+2025-09-12 00:36:01,498 - INFO - OK | GET /models | handler=get_models_names | time=0.0026s | status_code=200
+2025-09-12 00:36:51,609 - ERROR - ClientError | POST /generate | handler=post_model_prompt | time=1.1796s
+
+2025-09-12 00:37:31,957 - ERROR - ClientError | POST /generate | handler=post_model_prompt | time=5.1878s
+
+2025-09-12 00:40:55,686 - INFO - OK | POST /generate | handler=post_model_prompt | time=9.2589s | status_code=200
+2025-09-12 00:42:33,582 - INFO - OK | POST /generate | handler=post_model_prompt | time=7.1564s | status_code=200
+2025-09-12 00:44:53,891 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:44:57,833 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 2
+2025-09-12 00:45:02,813 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 3
+2025-09-12 00:45:12,776 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 4
+2025-09-12 00:45:20,644 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 5
+2025-09-12 00:45:33,057 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:45:41,638 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 2
+2025-09-12 00:45:53,718 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 3
+2025-09-12 00:46:05,391 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 4
+2025-09-12 00:46:14,203 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 5
+2025-09-12 00:46:22,490 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:46:32,916 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 2
+2025-09-12 00:46:43,367 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 3
+2025-09-12 00:46:50,036 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 4
+2025-09-12 00:46:59,660 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 5
+2025-09-12 00:47:14,816 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:47:22,925 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 2
+2025-09-12 00:47:27,206 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 3
+2025-09-12 00:47:37,138 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 4
+2025-09-12 00:47:44,010 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 5
+2025-09-12 00:47:51,076 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:48:00,495 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 2
+2025-09-12 00:48:08,480 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 3
+2025-09-12 00:48:20,453 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 4
+2025-09-12 00:48:33,047 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 5
+2025-09-12 00:48:37,319 - INFO - OK | POST /benchmark | handler=benchmark | time=223.4414s | status_code=200
+2025-09-12 00:49:38,151 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:49:45,337 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:49:53,718 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:50:02,320 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:50:11,153 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
+2025-09-12 00:50:25,180 - INFO - OK | POST /benchmark | handler=benchmark | time=47.0304s | status_code=200
+

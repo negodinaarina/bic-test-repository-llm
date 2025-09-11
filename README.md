@@ -29,10 +29,9 @@
   * параметр `max_tokens` (по умолчанию 512);
   * вернуть JSON с `response`, `tokens_used`, `latency_seconds`;
   * глобальный обработчик 429 с экспоненциальным `retry`.
-* [ ] `POST /benchmark`:
+* [x] `POST /benchmark`:
 
   * вход: `prompt_file` (txt, по строкам), `model`, `runs` (int, дефолт 5);
-
   * метрики latency: `avg`, `min`, `max`, `std_dev`;
   * сохранить `benchmark_results.csv`;
   * вернуть JSON со статистикой.

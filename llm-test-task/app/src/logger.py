@@ -12,7 +12,9 @@ from src.services.base.exceptions import ClientError
 logger = logging.getLogger("app")
 logger.setLevel(logging.INFO)
 
-file_handler = logging.FileHandler(LOGS_DIR / "server_logs.txt", encoding="utf-8")
+file_handler = logging.FileHandler(
+    LOGS_DIR / "server_logs.txt", encoding="utf-8"
+)
 file_handler.setLevel(logging.INFO)
 
 formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
@@ -43,7 +45,8 @@ class LoggingMiddleware(BaseHTTPMiddleware):
         except HTTPException as exc:
             process_time = time.time() - start_time
             logger.error(
-                "HTTPException | %s %s | handler=%s | time=%.4fs\nTraceback:\n%s",
+                "HTTPException | %s %s | handler=%s"
+                " | time=%.4fs\nTraceback:\n%s",
                 request.method,
                 request.url.path,
                 getattr(request.scope.get("endpoint"), "__name__", None),
@@ -57,7 +60,8 @@ class LoggingMiddleware(BaseHTTPMiddleware):
         except Exception as exc:
             process_time = time.time() - start_time
             logger.error(
-                "UnhandledException | %s %s | handler=%s | time=%.4fs\nTraceback:\n%s",
+                "UnhandledException | %s %s | handler=%s"
+                " | time=%.4fs\nTraceback:\n%s",
                 request.method,
                 request.url.path,
                 getattr(request.scope.get("endpoint"), "__name__", None),

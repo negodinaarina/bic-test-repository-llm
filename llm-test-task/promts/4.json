@@ -1,0 +1,11 @@
+{
+  "response": {
+    "model": "moonshotai/kimi-k2:free",
+    "prompt": "why it is hard to learn finnish language?"
+  },
+  "request": {
+    "text": " – The Finnish School of Astana\n\nLearning Finnish can be challenging for several reasons, especially for speakers of non-Finno-Ugric languages. Here are the main factors:\n\n1. **Grammar Complexity**\n   - **Cases**: Finnish has 15 grammatical cases that alter the endings of nouns, adjectives, pronouns, and numerals based on their role in a sentence. For example, \"talo\" (house) becomes \"talossa\" (in the house), \"talosta\" (from the house), etc.\n   - **No Articles or Gender**: While this might seem simpler, it requires learners to infer context (e.g., \"a\" or \"the\" in English) from sentence structure.\n   - **Consonant Gradation**: Words change internally (e.g., \"katu\" → \"kadulla\" for \"street\" → \"on the street\"), with unpredictable patterns.\n\n2. **Vocabulary Unfamiliarity**\n   - Finnish is a **Uralic language**, unrelated to Indo-European languages like English or Russian. Most words lack cognates, making memorization harder. For example, \"kirja\" (book) and \"ystävä\" (friend) have no familiar roots.\n\n3. **Pronunciation and Phonetics**\n   - **Vowel Harmony**: Words must align front vowels (ä, ö, y) or back vowels (a, o, u), altering suffixes. For example, \"kissa\" (cat) becomes \"kissalle\" (to the cat), not \"kissälle.\"\n   - **Double Vowels/Consonants**: Length changes meaning (e.g., \"tuli\" [fire] vs. \"tuuli\" [wind]). Mispronouncing \"tuli\" could lead to confusion.\n\n4. **Word Construction**\n   - Agglutination: Endless suffixes create long words like *\"epäjärjestelmällistyttämättömyydelläänkään\"* (\"even with their ability to not cause something to be unsystematic\"). Each suffix alters meaning incrementally.\n\n5. **Limited Exposure**\n   - Fewer resources (courses, media) compared to major languages. Dialects (e.g., spoken vs. standard Finnish) can also differ significantly.\n\n6. **Verb Conjugation**\n   - Verbs conjugate for person, number, tense, mood, and voice. For example, \"to speak\" (puhua",
+    "tokens_used": 522,
+    "latency_seconds": 21.924761235000915
+  }
+}

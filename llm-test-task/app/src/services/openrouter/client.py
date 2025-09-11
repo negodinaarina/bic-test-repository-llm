@@ -8,7 +8,9 @@ from src.services.base.client import BaseClient
 
 
 class OpenRouterClient(BaseClient):
-    _requests_cache = TTLCache(maxsize=settings.CACHE_MAXSIZE, ttl=settings.CACHE_TTL)
+    _requests_cache: TTLCache = TTLCache(
+        maxsize=settings.CACHE_MAXSIZE, ttl=settings.CACHE_TTL
+    )
 
     @cached(_requests_cache)
     async def get_detailed_models(self) -> list[ModelSchema]:

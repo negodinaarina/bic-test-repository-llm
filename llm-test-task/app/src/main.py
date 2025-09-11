@@ -6,9 +6,9 @@ from src.logger import LoggingMiddleware
 
 app = FastAPI(
     title="llm-test-task",
-    openapi_url=f"/openapi.json",
-    docs_url=f"/docs",
-    redoc_url=f"/redoc",
+    openapi_url="/openapi.json",
+    docs_url="/docs",
+    redoc_url="/redoc",
 )
 
 app.add_middleware(
