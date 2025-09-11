@@ -1129,3 +1129,40 @@ ValueError: not enough values to unpack (expected 5, got 4)
 2025-09-12 00:50:11,153 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: tngtech/deepseek-r1t-chimera:free, RUN: 1
 2025-09-12 00:50:25,180 - INFO - OK | POST /benchmark | handler=benchmark | time=47.0304s | status_code=200
 
+2025-09-12 02:04:32,008 - INFO - OK | GET / | handler=None | time=0.0005s | status_code=404
+2025-09-12 02:04:37,268 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0006s | status_code=200
+2025-09-12 02:04:37,447 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0052s | status_code=200
+2025-09-12 02:04:45,597 - INFO - OK | GET /docs | handler=swagger_ui_html | time=0.0002s | status_code=200
+2025-09-12 02:04:45,696 - INFO - OK | GET /openapi.json | handler=openapi | time=0.0002s | status_code=200
+2025-09-12 02:04:51,520 - INFO - OK | GET /models | handler=get_models_names | time=0.3238s | status_code=200
+2025-09-12 02:05:48,106 - INFO - OK | POST /generate | handler=post_model_prompt | time=29.3874s | status_code=200
+2025-09-12 02:06:17,290 - INFO - OK | POST /generate | handler=post_model_prompt | time=6.5090s | status_code=200
+2025-09-12 02:06:47,277 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 1
+2025-09-12 02:06:47,278 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 2
+2025-09-12 02:06:47,278 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 3
+2025-09-12 02:07:37,162 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 4
+2025-09-12 02:07:46,431 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 5
+2025-09-12 02:07:50,378 - ERROR - {'_request': <Request('POST', 'https://openrouter.ai/api/v1/completions')>}
+2025-09-12 02:07:50,378 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 1
+2025-09-12 02:07:50,388 - ERROR - {'_request': <Request('POST', 'https://openrouter.ai/api/v1/completions')>}
+2025-09-12 02:07:50,388 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 2
+2025-09-12 02:07:54,468 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 3
+2025-09-12 02:08:06,756 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 4
+2025-09-12 02:08:13,294 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 5
+2025-09-12 02:08:19,966 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 1
+2025-09-12 02:08:26,315 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 2
+2025-09-12 02:08:38,540 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 3
+2025-09-12 02:08:39,413 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 4
+2025-09-12 02:08:48,742 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 5
+2025-09-12 02:08:53,444 - ERROR - {'_request': <Request('POST', 'https://openrouter.ai/api/v1/completions')>}
+2025-09-12 02:08:53,444 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 1
+2025-09-12 02:08:54,987 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 2
+2025-09-12 02:09:06,811 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 3
+2025-09-12 02:09:06,855 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 4
+2025-09-12 02:09:08,552 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 5
+2025-09-12 02:09:15,878 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 1
+2025-09-12 02:09:19,292 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 2
+2025-09-12 02:09:27,550 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 3
+2025-09-12 02:09:31,392 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 4
+2025-09-12 02:09:32,678 - INFO - STARTED SINGLE PROMPT IN BENCHMARK MODEL: deepseek/deepseek-r1-0528-qwen3-8b:free, RUN: 5
+2025-09-12 02:09:57,555 - INFO - OK | POST /benchmark | handler=benchmark | time=190.2896s | status_code=200

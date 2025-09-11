@@ -1,11 +1,15 @@
 [project]
 name = "llm-test-task"
 version = "0.1.0"
-description = "Add your description here"
+description = "Arina Negodina Test Task Solution"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "asyncache>=0.3.1",
     "fastapi>=0.116.1",
+    "httpx>=0.28.1",
     "pydantic-settings>=2.10.1",
+    "python-multipart>=0.0.20",
+    "tenacity>=9.1.2",
     "uvicorn>=0.35.0",
 ]
