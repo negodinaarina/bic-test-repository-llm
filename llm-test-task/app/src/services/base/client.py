@@ -2,8 +2,7 @@ import enum
 from typing import Any, Union
 
 from httpx import AsyncClient
-from tenacity import (retry, retry_if_exception, stop_after_attempt,
-                      wait_exponential)
+from tenacity import retry, retry_if_exception, stop_after_attempt, wait_exponential
 
 from src.config import settings
 from src.services.base.exceptions import ClientError
@@ -28,7 +27,11 @@ class BaseClient:
 
     @retry(
         retry=retry_if_exception(is_retryable_exception),
-        wait=wait_exponential(multiplier=1, min=1, max=60),
+        wait=wait_exponential(
+            multiplier=settings.RETRY_MULTIPLIER,
+            min=settings.MIN_RETRY_DELAY,
+            max=settings.MAX_RETRY_DELAY,
+        ),
         stop=stop_after_attempt(settings.MAX_RETRIES),
         reraise=True,
     )
